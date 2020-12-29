@@ -1,0 +1,3 @@
+comtest:
+  maxAttempts: 3
+  backoff: 2000
