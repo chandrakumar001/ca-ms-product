@@ -68,16 +68,80 @@ http://dummy.restapiexample.com/
 
 Applications with Services called something like AccountService, UserService, PaymentService are much easier to deal with than those with DatabaseService, ValidationService, CalculationService etc
 
+    * YAGNI
+    * DRY Code
+    * KISS
+    * SOLID
+    * Tell, Don’t Ask
+
 
 If you have not heard about SOLID, here is the quick break down:
 
-        SRP: The Single Responsibility Principle
+        SRP: The Single Responsibility Principle(High Cohesion)
         OCP: The Open-Closed Principle
-        LSP: The Liskov Substitution Principle
-        ISP: The Interface Segregation Principle
-        DIP: The Dependency Inversion Principle
+        LSP: The Liskov Substitution Principle('extends':: Parent/Child relationship)
+        ISP: The Interface Segregation Principle('implements'::
+        DIP: The Dependency Inversion Principle(
+
+####Single Responsibility
+Every module or class should have responsibility 
+over a single part of the functionality
+ Example -
+ 
+        Login package should deal with the user login code,
+        It should not deal with user signup
+
+        
+        Write code in a way so that your classes/methods are -
+        Open for extension, but closed for modification
+        
 https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-developing-auto-configuration
 https://www.e4developer.com/2018/07/14/discovering-clean-architecture-with-uncle-bob/ 
+
+###Couping and Cohesion
+    Couping is foucs on Complexitiy between a MODULE and other module 
+    Example:  
+        Params Calcualation
+         
+    Cohesion is foucs on Complexitiy WITH IN MODULE
+    Example: 
+        Cohesion is represent the clarity of responsibility WITH IN MODULE
+###Couping: 
+    * Loosely Couping(Use Interface)
+    * Tightly Couping
+
+###Cohesion: 
+    * Low Cohesion
+    * High Cohesion
+###Advantage:
+  * flexible
+  * maintainable
+  * re-usable 
+          
+In essence, 
+* High cohesion means keeping parts of a code base that are related to each other in a single place. 
+* Low coupling, at the same time, is about separating unrelated parts of the code base as much as possible
+ 
+        'Extracting the class specific method'
+ 
+######Recommendations:   'Loosely couping and High Cohesion'
+
+   Example:
+      
+      | Low Cohesion                       | High Cohesion                                  |
+      | -----------------------------------| ---------------------------------------------- |
+      |   Class A {                        |    Class A{                                    |
+      |      checkEmail();                 |      checkEmail(); }                           |
+      |      validateEmail();              |   Class B {                                    |         
+      |      sendEmail();                  |      validateEmail();  }                       |
+      |      printLetter();                |   Class C {                                    |
+      |      printAddress();               |        sendEmail(); }                          |
+      |   }                                |  Class D {                                     | 
+      |                                    |        printLetter(); }                        |
+      |1.Low cohesion is when you have     |1.High cohesion is when you have                |
+      |  a class that does not a well      |a class that does a well defined                |
+      |  defined job                       |job                                             |
+
 
 ##Test this endpoints
     GET http://localhost:8080/v1/products
