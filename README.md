@@ -1,6 +1,48 @@
 # ca-employee
 
 
+-[x] authorization
+-[x] data access
+-[x] validation
+-[x] Business logic: 
+  * show only JAN-month data
+  * show only FEB-month data
+
+Default Fetch type in case of the below annotations.
+
+@OneToOne – Default fetch type is EAGER
+@ManyToOne – Default fetch type is EAGER.
+@OneToMany – Default fetch type is LAZY.
+@ManyToMany – Default fetch type is LAZY.
+@ElementCollection – Default fetch type is EAGER.
+
+FetchType.LAZY = Doesn’t load the relationships unless explicitly “asked for” via getter
+FetchType.EAGER = Loads ALL relationships
+
+The way I like to put it is like this:
+
+EAGER: Convenient, but slow
+LAZY: More coding, but much more efficient
+
+https://howtoprogramwithjava.com/hibernate-eager-vs-lazy-fetch-type/
+
+
+
+https://www.javacodemonk.com/n-1-problem-in-hibernate-spring-data-jpa-894097b9
+
+
+#Application Start
+> mvn spring-boot:run
+
+# one interface implements multi -impl.
+-[x] @Primay
+-[x] @Qualifier
+
+
+@Service
+@Primary
+class MyServiceB implements MyServiceInterface {}
+
 Benefices of manifest file and var file
 
     reference: https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html

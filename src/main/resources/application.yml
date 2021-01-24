@@ -5,17 +5,23 @@ spring:
     name: ca-product
   datasoruce:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
     username: sa
-    password:
+    password: sa
     hikari:
       auto-commit: true
       minimum-idle: 3
   jpa:
+    properties:
+      hibernate:
+        generate_statistics: true
     show-sql: true
     hibernate:
+#      type: trace
+      #      hbm2ddl:
+      #        import_files: 'classpath:schema.sql'
       ddl-auto: none
-      default_schema: customer
+      default_schema: product
       jdbc.lob.non_contextual_creation: true
       dialect: org.hibernate.dialect.H2Dialect
     # Enabling H2 Console
@@ -25,7 +31,7 @@ spring:
     console.path: /h2
 
   main:
-    banner-mode: off
+    #    banner-mode:
     allow-bean-definition-overriding: true
   messages:
     basename: i18n/messages
@@ -41,7 +47,13 @@ springdoc:
 logging:
   level:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
-    root: ERROR
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#    org.hibernate.type.descriptor.sql: TRACE
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate: info
+#    org.hibernate.type: trace
+    org.hibernate.stat: debug
+  #root: ERROR
 feign:
   hystrix:
     enabled: true
