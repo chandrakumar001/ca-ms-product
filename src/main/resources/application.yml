@@ -20,7 +20,7 @@ spring:
 #      type: trace
       #      hbm2ddl:
       #        import_files: 'classpath:schema.sql'
-      ddl-auto: none
+      ddl-auto: create
       default_schema: product
       jdbc.lob.non_contextual_creation: true
       dialect: org.hibernate.dialect.H2Dialect

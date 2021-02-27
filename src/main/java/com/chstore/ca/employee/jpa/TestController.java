@@ -5,6 +5,7 @@ import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.history.RevisionRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,13 +57,13 @@ class TestService {
                 .collect(Collectors.toList());
         System.out.println("Items--" + items);
 
-        List<String> rooms = testItemRepository.findAll()
-                .stream()
-                .map(Item::getRoom)
-                .map(Room::getRoomName)
-                .collect(Collectors.toList());
-
-        System.out.println("Rooms--" + items);
+//        List<String> rooms = testItemRepository.findAll()
+//                .stream()
+//                .map(Item::getRoom)
+//                .map(Room::getRoomName)
+//                .collect(Collectors.toList());
+//
+//        System.out.println("Rooms--" + items);
 
     }
 
@@ -90,7 +91,7 @@ interface TestRepository extends JpaRepository<Room, Long> {
 }
 
 @Repository
-interface TestItemRepository extends JpaRepository<Item, Long> {
+interface TestItemRepository extends JpaRepository<Item, Long>, RevisionRepository<Item, Long, Integer> {
 
     @Query("SELECT i FROM Item i LEFT JOIN FETCH i.room")
     List<Item> findAll();

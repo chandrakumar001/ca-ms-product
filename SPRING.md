@@ -85,6 +85,12 @@ using attributePaths, Spring Data JPA avoids N+1 problem
    * https://codete.com/blog/jpa-n-plus-1-select-problem/
    * https://www.javacodemonk.com/n-1-problem-in-hibernate-spring-data-jpa-894097b9
 
+Refer:
+https://notes.kartashov.com/2016/06/16/getting-started-with-spring-data-envers/
+https://sunitc.dev/2020/01/21/spring-boot-how-to-add-jpa-hibernate-envers-auditing/
+#### Hibernate envers
+Error: hbm.xml JAXBContext
+
 ### THE BEST
   * https://www.javadevjournal.com/spring-boot/spring-boot-with-hibernate/
   
